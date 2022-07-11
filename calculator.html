@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Calculator</title>
+	<link rel="stylesheet" type="text/css" href="calculator.css">
+</head>
+<body>
+<div class="container">
+      <div class="display">0</div>
+      <div class="calculator">
+        <button class="clear">Clear</button>
+        <button class="numbers">7</button>
+        <button class="numbers">8</button>
+        <button class="numbers">9</button>
+        <button class="operator">/</button>
+        <button class="numbers">4</button>
+        <button class="numbers">5</button>
+        <button class="numbers">6</button>
+        <button class="operator">*</button>
+        <button class="numbers">1</button>
+        <button class="numbers">2</button>
+        <button class="numbers">3</button>
+        <button class="operator">+</button>
+        <button class="numbers">0</button>
+        <button class="numbers">.</button>
+        <button class="operator">-</button>
+        <button class="equal">=</button>
+      </div>
+    </div>
+</body>
+
+	 <script>
+       let operand1=0;
+       let operand2=0;
+       let operation="";
+       let haveDot=false;
+       let displayNum="";
+	 	const numbersBtn=document.getElementsByClassName("numbers");
+	 	const display=document.getElementsByClassName("display")[0];
+	 	const operatorsBtn=document.getElementsByClassName("operator");
+	 	const equalBtn=document.getElementsByClassName("equal")[0];
+	 	const clear=document.getElementsByClassName("clear")[0];
+
+
+	 	for(let numberBtn of numbersBtn){
+	 		numberBtn.addEventListener("click",(event)=>{
+	 			// console.log(event.target.textContent);
+	 			// if(display.innerText==="0"){
+	 			// 	display.innerText=event.target.textContent;
+	 			// }else{
+	 			// 	display.innerText+=event.target.textContent;
+	 			// }
+
+     //           if(display.innerText)
+
+              if(event.target.textContent==="." && !haveDot){
+              	haveDot=true
+              }else if(event.target.textContent==="." && haveDot){
+              	return;
+              }
+              
+              displayNum+=event.target.textContent;
+              console.log("hellow",displayNum)
+              display.textContent=Number(displayNum);
+
+
+
+	 		});
+	 	}
+
+	 	for(let operator of operatorsBtn){
+	 		operator.addEventListener("click",(event)=>{
+	 			console.log(haveDot);
+	 			console.log(event.target.textContent);
+	 			operand1=Number(displayNum);
+	            displayNum="";
+	 			operation=event.target.textContent;
+	 			display.textContent="0";
+	 			haveDot=false;
+
+            });
+	 	}
+
+	 	equalBtn.addEventListener("click",()=>{
+	 		let result=0;
+	 		console.log(typeof displayNum);
+	 		operand2=Number(display.textContent);
+           displayNum="";
+	 		if(operation==="+")
+	 		{
+               result =nemeh(operand1,operand2);
+               display.textContent=result;
+	 		}else if(operation==="-")
+	 		{
+	 		   result =hasah(operand1,operand2);
+               display.textContent=result;
+	 		}else if(operation==="*")
+	 		{
+               result =urjeh(operand1,operand2);
+               display.textContent=result;
+	 		}else if(operation==="/")
+	 		{
+               result =huvaah(operand1,operand2);
+               display.textContent=result;
+	 		}
+	 	});
+			 	function nemeh(a,b){
+			 		return a + b;
+			 	}
+			 	function hasah(a,b){
+			 		return a - b
+			 	}
+			 	function huvaah(a,b){
+			 	 	return	a/b
+			 	}
+			 	function urjeh(a,b){
+			 		return a*b
+			 	}
+
+	 	clear.addEventListener("click",()=>{
+	 		display.textContent="0";
+	 	});
+
+       
+
+	 </script>
+</html>
