@@ -9,24 +9,24 @@
 <body>
 <div class="container">
       <div class="display">0</div>
-      <div class="calculator">
-        <button class="clear">Clear</button>
-        <button class="numbers">7</button>
-        <button class="numbers">8</button>
-        <button class="numbers">9</button>
-        <button class="operator">/</button>
-        <button class="numbers">4</button>
-        <button class="numbers">5</button>
-        <button class="numbers">6</button>
-        <button class="operator">*</button>
-        <button class="numbers">1</button>
-        <button class="numbers">2</button>
-        <button class="numbers">3</button>
-        <button class="operator">+</button>
-        <button class="numbers">0</button>
-        <button class="numbers">.</button>
-        <button class="operator">-</button>
-        <button class="equal">=</button>
+      <div class="calculatorButtons">
+        <button class="clear"><i>C</i></button>
+        <button class="operator plus"><i>+</i></button>
+        <button class="operator"><i>-</i></button>
+        <button class="numbers"><i>9</i></button>
+        <button class="numbers"><i>8</i></button>       
+        <button class="numbers"><i>7</i></button>
+        <button class="numbers"><i>6</i></button>
+        <button class="numbers"><i>5</i></button>
+        <button class="numbers"><i>4</i></button>
+        <button class="numbers"><i>3</i></button>
+        <button class="numbers"><i>2</i></button>
+        <button class="numbers"><i>1</i></button>
+        <button class="numbers"><i>0</i></button>
+        <button class="operator"><i>*</i></button>
+        <button class="operator"><i>/</i></button>        
+        <button class="numbers"><i>.</i></button>
+        <button class="equal"><i>=</i></button>
       </div>
     </div>
 </body>
@@ -46,15 +46,7 @@
 
 	 	for(let numberBtn of numbersBtn){
 	 		numberBtn.addEventListener("click",(event)=>{
-	 			// console.log(event.target.textContent);
-	 			// if(display.innerText==="0"){
-	 			// 	display.innerText=event.target.textContent;
-	 			// }else{
-	 			// 	display.innerText+=event.target.textContent;
-	 			// }
-
-     //           if(display.innerText)
-
+	 			
               if(event.target.textContent==="." && !haveDot){
               	haveDot=true
               }else if(event.target.textContent==="." && haveDot){
